@@ -1,3 +1,5 @@
+// C:\Users\Lenovo\Development\Project\02FullLMS\server\controllers\courseProgress.controller.js
+
 import { CourseProgress } from "../models/courseProgress.js";
 import { Course } from "../models/course.model.js";
 
