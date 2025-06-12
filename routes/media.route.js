@@ -1,3 +1,5 @@
+// C:\Users\Lenovo\Development\Project\02FullLMS\server\routes\media.route.js
+
 import express from "express";
 import upload from "../utils/multer.js";
 import { uploadMedia } from "../utils/cloudinary.js";

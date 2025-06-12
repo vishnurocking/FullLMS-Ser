@@ -1,3 +1,5 @@
+// C:\Users\Lenovo\Development\Project\02FullLMS\server\models\coursePurchase.model.js
+
 import mongoose from "mongoose";
 const coursePurchaseSchema = new mongoose.Schema({
     courseId:{

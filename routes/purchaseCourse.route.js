@@ -1,3 +1,5 @@
+// C:\Users\Lenovo\Development\Project\02FullLMS\server\routes\purchaseCourse.route.js
+
 import express from "express";
 import isAuthenticated from "../middlewares/isAuthenticated.js";
 import { createCheckoutSession, getAllPurchasedCourse, getCourseDetailWithPurchaseStatus, stripeWebhook } from "../controllers/coursePurchase.controller.js";

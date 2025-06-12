@@ -1,3 +1,5 @@
+// C:\Users\Lenovo\Development\Project\02FullLMS\server\controllers\coursePurchase.controller.js
+
 import Stripe from "stripe";
 import { Course } from "../models/course.model.js";
 import { CoursePurchase } from "../models/coursePurchase.model.js";

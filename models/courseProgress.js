@@ -1,3 +1,5 @@
+// C:\Users\Lenovo\Development\Project\02FullLMS\server\models\courseProgress.js
+
 import mongoose from "mongoose"
 
 const lectureProgressSchema = new mongoose.Schema({

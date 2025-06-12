@@ -1,3 +1,5 @@
+// C:\Users\Lenovo\Development\Project\02FullLMS\server\models\lecture.model.js
+
 import mongoose from "mongoose";
 
 const lectureSchema = new mongoose.Schema({
