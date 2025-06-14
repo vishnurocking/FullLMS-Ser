@@ -2,34 +2,53 @@
 
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    email:{
-        type:String,
-        required:true
+    nickname: {
+      type: String,
     },
-    password:{
-        type:String,
-        required:true
+    email: {
+      type: String,
+      required: true,
+      unique: true,
     },
-    role:{
-        type:String,
-        enum:["instructor", "student"],
-        default:'student'
+    password: {
+      type: String,
+      required: false,
     },
-    enrolledCourses:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'Course'
-        }
+    googleId: {
+      type: String,
+      unique: true,
+      sparse: true,
+    },
+    role: {
+      type: String,
+      enum: ["instructor", "student"],
+      default: "student",
+    },
+    enrolledCourses: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Course",
+      },
     ],
-    photoUrl:{
-        type:String,
-        default:""
-    }
-},{timestamps:true});
+    photoUrl: {
+      type: String,
+      default: "",
+    },
+  },
+  { timestamps: true }
+);
+
+userSchema.pre("save", function (next) {
+  if (this.isNew && !this.nickname) {
+    this.nickname = this.name;
+  }
+  next();
+});
 
 export const User = mongoose.model("User", userSchema);

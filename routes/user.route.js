@@ -7,18 +7,23 @@ import {
   logout,
   register,
   updateProfile,
+  googleLogin,
 } from "../controllers/user.controller.js";
 import isAuthenticated from "../middlewares/isAuthenticated.js";
-import upload from "../utils/multer.js";
 
 const router = express.Router();
 
+// New route for Google Sign-In
+router.route("/google-login").post(googleLogin);
+
+// Dormant routes for email/password
 router.route("/register").post(register);
 router.route("/login").post(login);
+ 
 router.route("/logout").get(logout);
 router.route("/profile").get(isAuthenticated, getUserProfile);
-router
-  .route("/profile/update")
-  .put(isAuthenticated, upload.single("profilePhoto"), updateProfile);
+
+// Modified route: No longer uses multer for file uploads
+router.route("/profile/update").put(isAuthenticated, updateProfile);
 
 export default router;
